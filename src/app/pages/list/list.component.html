@@ -1,2 +1,32 @@
-<app-modal></app-modal>
-<h1>HOla</h1>
+<div class="p-4">
+    <h1 class="text-2xl font-bold mb-4 text-blue-600">List</h1>
+
+    <div class="mb-4">
+        <label for="viewSelect" class="block text-sm font-medium text-gray-700 mb-2">
+            Select what do you want to list:
+        </label>
+        <select id="viewSelect" [(ngModel)]="view"
+            class="block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+            <option value="departments">Departments</option>
+            <option value="employees">Employees</option>
+        </select>
+    </div>
+
+    <div class="mb-4 flex space-x-4">
+        <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600" (click)="openModal('department')">
+            Create Department
+        </button>
+        <button class="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600" (click)="openModal('employee')">
+            Create Employee
+        </button>
+    </div>
+
+    <div>
+
+        <app-department *ngIf="view === 'departments'"></app-department>
+        <app-employee *ngIf="view === 'employees'"></app-employee>
+
+    </div>
+
+    <app-modal *ngIf="modalIsOpen" [mode]="modalMode" (close)="closeModal()"></app-modal>
+</div>

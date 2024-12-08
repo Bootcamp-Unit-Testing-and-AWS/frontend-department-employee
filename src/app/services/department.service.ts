@@ -6,11 +6,10 @@ import { Department } from '../../../models/department.model';
   providedIn: 'root',
 })
 export class DepartmentService {
-  constructor() {}
   private readonly apiUrl = 'http://localhost:3000/departamentos';
   private http = inject(HttpClient);
-  department = signal<null | Department>(null);
-
+  department = signal<Department[] | null>([]);
+  constructor() {}
   getDepartments() {
     return this.http.get(this.apiUrl);
   }
