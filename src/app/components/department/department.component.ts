@@ -17,8 +17,9 @@ export class DepartmentComponent {
   ngOnInit() {
     this.departmentService.getDepartments().subscribe({
       next: (response: any) => {
-        this.department.set(response);
-        // console.log(this.products());
+        this.department.set(response.departments);
+
+        console.log(this.department());
       },
       error: (error: any) => {
         console.log(error);

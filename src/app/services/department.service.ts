@@ -6,7 +6,7 @@ import { Department } from '../../../models/department.model';
   providedIn: 'root',
 })
 export class DepartmentService {
-  private readonly apiUrl = 'http://localhost:3000/departamentos';
+  private readonly apiUrl = 'http://localhost:3000/departamento';
   private http = inject(HttpClient);
   department = signal<Department[] | null>([]);
   constructor() {}

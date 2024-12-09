@@ -16,7 +16,8 @@ export class EmployeeComponent {
   ngOnInit(): void {
     this.employeeService.getEmployees().subscribe({
       next: (response: any) => {
-        this.employees.set(response);
+        this.employees.set(response.employees);
+        console.log(this.employees());
       },
       error: (error: any) => {
         console.log(error);

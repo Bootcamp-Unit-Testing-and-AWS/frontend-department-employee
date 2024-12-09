@@ -29,6 +29,8 @@ export class ModalComponent {
 
   codigo: number = 0;
   nombre: string = '';
+  codigo_e: number = 0;
+  nombre_e: string = '';
   apellido1: string = '';
   apellido2: string = '';
   codigo_departamento = '';
@@ -43,20 +45,23 @@ export class ModalComponent {
       this.departmentService
         .createDepartment(this.department)
         .subscribe((res: Department | any) => {
-          this.department.set(res);
+          // this.department.set(res);
+          this.department = res;
           console.log(res);
         });
     } else if (this.mode === 'employee') {
       this.employee = {
-        codigo: this.codigo,
-        nombre: this.nombre,
+        codigo: this.codigo_e,
+        nombre: this.nombre_e,
         apellido1: this.apellido1,
         apellido2: this.apellido2,
         codigo_departamento: this.codigo_departamento,
       };
+      console.log(this.employee);
       this.employeeService.createEmployee(this.employee).subscribe({
         next: (response: Employee | any) => {
-          this.employee.set(response);
+          // this.employee.set(response);
+          this.employee = response;
         },
         error: (error) => {
           console.log(error);

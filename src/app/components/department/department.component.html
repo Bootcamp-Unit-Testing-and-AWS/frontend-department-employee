@@ -1,6 +1,6 @@
 <div class="p-4">
     <h2 class="text-2xl font-bold mb-4 text-blue-600">Departments</h2>
-    <div *ngIf="department.length; else noDepartments" class="bg-white shadow-md rounded-lg">
+    <div *ngIf="department()?.length; else noDepartments" class="bg-white shadow-md rounded-lg">
         <ul class="divide-y divide-gray-200">
             <li *ngFor="let department of department()"
                 class="px-4 py-3 flex justify-between items-center hover:bg-gray-50 transition">
